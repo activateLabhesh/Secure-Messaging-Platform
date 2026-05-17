@@ -1,165 +1,151 @@
 ![ieeecs-template-header](https://github.com/user-attachments/assets/c3c40c85-51a2-4a5e-82a4-c32a0223e336)
 
-<h1 align="center">Project Name</h1>
+<h1 align="center">Secure Messaging Platform</h1>
+---
 
-<h4 align="center">One-line description of the project.</h4>
+
+# Contributing Guide
+
+This guide explains how to fork a repository, clone it, make changes, and create Pull Requests (PRs).
+
+## 1. Fork the Repository
+
+1. Open the repository on GitHub
+2. Click **Fork** (top-right corner)
+3. Select your GitHub account
+
+This creates:
+
+`https://github.com/YOUR_USERNAME/REPOSITORY_NAME`
 
 ---
 
-## Overview
+## 2. Clone the Forked Repository
 
-Provide a concise description of:
+```bash
+git clone https://github.com/YOUR_USERNAME/REPOSITORY_NAME.git
 
-- The problem being addressed  
-- Why it is relevant  
-- What this project aims to achieve  
+cd REPOSITORY_NAME
+```
 
----
+Check remotes:
 
-## Architecture Overview
-
-Provide a high-level explanation of the system design.
-
-Include:
-
-- Core components  
-- Data flow between components  
-- External integrations (if applicable)  
-
-(Optional) Include an architecture diagram if available.
+```bash
+git remote -v
+```
 
 ---
 
-## Tech Stack
+## 3. Add Upstream Repository
 
-| Layer        | Technology Used |
-|-------------|-----------------|
-| Frontend    |                 |
-| Backend     |                 |
-| Database    |                 |
-| DevOps      |                 |
-| Other Tools |                 |
+```bash
+git remote add upstream https://github.com/ORIGINAL_OWNER/REPOSITORY_NAME.git
+```
+
+Verify:
+
+```bash
+git remote -v
+```
+
+Expected output:
+
+```text
+origin    https://github.com/YOUR_USERNAME/REPOSITORY_NAME.git
+upstream  https://github.com/ORIGINAL_OWNER/REPOSITORY_NAME.git
+```
 
 ---
 
-## Project Structure
+## 4. Create a Branch
 
-Briefly describe the key directories and their purpose.
+Do not work directly on `main`.
+
+```bash
+git checkout -b feature/your-feature-name
+```
 
 Example:
 
 ```bash
-src/
-├── components/
-├── services/
-├── utils/
-├── routes/
-└── main.js
+git checkout -b feature/login-page
 ```
+
 ---
 
-## ⚙️ Setup Instructions
+## 5. Make Changes
 
-### 1. Clone the Repository
+Check status:
 
 ```bash
-git clone <repository-url>
-cd <project-folder>
+git status
 ```
 
-### 2. Install Dependencies
+Stage files:
+
+```bash
+git add .
+```
+
+Commit:
+
+```bash
+git commit -m "Add login page implementation"
+```
+
+---
+
+## 6. Push Changes
+
+```bash
+git push origin feature/your-feature-name
+```
 
 Example:
 
 ```bash
-npm install
+git push origin feature/login-page
 ```
 
-### 3. Configure Environment Variables
+---
 
-Create a `.env` file in the root directory and define the required variables.
+## 7. Create a Pull Request (PR)
 
-Refer to `.env.example` for the list of required keys.
+1. Open your fork on GitHub
+2. Click **Compare & Pull Request**
+3. Add title and description
+4. Click **Create Pull Request**
 
-### 4. Run the Project
+---
 
-Example:
+## Keep Your Fork Updated
 
 ```bash
-npm run dev
+git fetch upstream
+
+git checkout main
+
+git merge upstream/main
+
+git push origin main
 ```
 
 ---
 
-## Docker Setup
+## Workflow Summary
 
-### Build Image
-
-```bash
-docker build -t <project-name> .
+```text
+Fork Repo
+   ↓
+Clone Fork
+   ↓
+Create Branch
+   ↓
+Make Changes
+   ↓
+Commit
+   ↓
+Push
+   ↓
+Open PR
 ```
-
-### Run Container
-
-```bash
-docker run -p <port>:<port> <project-name>
-```
----
-
-## Git Hooks Setup
-
-This repository uses custom Git hooks to enforce commit standards and branch discipline.
-
-After cloning the repository, run the following command once:
-
-```bash
-git config core.hooksPath .hooks
-```
-This enables:
-- Commit message validation
-- Blocking direct pushes to `main`
-
----
-
-## Environment Variables
-
-List all required environment variables and briefly explain their purpose.
-
-| Variable Name | Description |
-|--------------|------------|
-| DATABASE_URL | Database connection string |
-| API_KEY      | Third-party API key |
-| PORT         | Application port |
-
----
-
-## Deployment
-
-Describe:
-
-- Deployment platform  
-- Build steps  
-- Production considerations  
-
----
-
-## Testing (If Applicable)
-
-Provide instructions to run tests.
-
-Example:
-
-```bash
-npm test
-```
----
-
-## Project Status
-
-- 🟢 In Development  
-- 🟡 Maintenance Mode  
-- 🔵 Completed  
-- 🔴 Archived  
-
-
-
