@@ -81,7 +81,7 @@ export default function App() {
     if (screen !== 'chat' || !session || !keys) return;
 
     addSystemMessage('Establishing connection to router...', 'info');
-    const newSocket = io('http://localhost:3000', {
+    const newSocket = io('https://secure-messaging-platform-doev.onrender.com', {
       auth: { token: session.access_token }
     });
     setSocket(newSocket);
